@@ -13,24 +13,24 @@ namespace SwordDamageWPF
         public const int FLAME_DAMAGE = 2;
 
         public int Roll;
-        public decimal MagicMultiplier = 1M;
-        public int FlamingDamage = 0;
+        private decimal magicMultiplier = 1M;
+        private int flamingDamage = 0;
         public int Damage;
 
-        public void CalculateDamage()
+        private void CalculateDamage()
         {
-            Damage = (int)(Roll * MagicMultiplier) + BASE_DAMAGE + FlamingDamage;
+            Damage = (int)(Roll * magicMultiplier) + BASE_DAMAGE + flamingDamage;
         }
 
         public void SetMagic(bool isMagic)
         {
             if (isMagic)
             {
-                MagicMultiplier = 1.75M;
+                magicMultiplier = 1.75M;
             }
             else
             {
-                MagicMultiplier = 1M;
+                magicMultiplier = 1M;
             }
             CalculateDamage();
         }
